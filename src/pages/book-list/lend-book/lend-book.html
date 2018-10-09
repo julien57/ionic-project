@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons>
+      <button ion-button navPop>Retour</button>
+    </ion-buttons>
+    <ion-title>{{ book.name }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      <p>{{ book.name }}</p>
+    </ion-card-header>
+    <ion-card-content>
+        <p>Auteur : {{ book.auteur }}</p>
+        <p>Description : {{ book.description }}</p>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <button ion-button
+                    full
+                    [disabled]="book.isLent"
+                    (click)="onToggleBook()">Prêter</button>
+          </ion-col>
+          <ion-col>
+            <button ion-button
+                    full
+                    [disabled]="!book.isLent"
+                    (click)="onToggleBook()">Rendre</button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
